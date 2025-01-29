@@ -12,7 +12,7 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 script {
-                    echo "docker build --build-arg RESPONSE_MESSAGE=${RESPONSE_1} --build-arg PORT=${PORT_1} -t container1:latest ."
+                    docker build --build-arg RESPONSE_MESSAGE="ahia" --build-arg PORT=3000 -t container1:latest ."
                     echo "docker build --build-arg RESPONSE_MESSAGE=${RESPONSE_2} --build-arg PORT=${PORT_2} -t container2:latest ."
                     echo "docker build --build-arg RESPONSE_MESSAGE=${RESPONSE_3} --build-arg PORT=${PORT_3} -t container3:latest ."
                 }
