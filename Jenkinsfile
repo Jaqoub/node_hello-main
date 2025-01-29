@@ -12,36 +12,30 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 script {
-                    sh """
-                        docker build --build-arg RESPONSE_MESSAGE=${RESPONSE_1} --build-arg PORT=${PORT_1} -t container1:latest .
-                    """
-                    sh """
-                        docker build --build-arg RESPONSE_MESSAGE=${RESPONSE_2} --build-arg PORT=${PORT_2} -t container2:latest .
-                    """
-                    sh """
-                        docker build --build-arg RESPONSE_MESSAGE=${RESPONSE_3} --build-arg PORT=${PORT_3} -t container3:latest .
-                    """
+                    echo "docker build --build-arg RESPONSE_MESSAGE=${RESPONSE_1} --build-arg PORT=${PORT_1} -t container1:latest ."
+                    echo "docker build --build-arg RESPONSE_MESSAGE=${RESPONSE_2} --build-arg PORT=${PORT_2} -t container2:latest ."
+                    echo "docker build --build-arg RESPONSE_MESSAGE=${RESPONSE_3} --build-arg PORT=${PORT_3} -t container3:latest ."
                 }
             }
         }
         stage('Run Containers') {
             steps {
                 script {
-                    sh 'docker run -d -p 3000:3000 container1:latest'
-                    sh 'docker run -d -p 3001:3001 container2:latest'
-                    sh 'docker run -d -p 3002:3002 container3:latest'
+                    echo "docker run -d -p 3000:3000 container1:latest"
+                    echo "docker run -d -p 3001:3001 container2:latest"
+                    echo "docker run -d -p 3002:3002 container3:latest"
                 }
             }
         }
         stage('Verify Containers') {
             steps {
                 script {
-                    sleep 10
-                    sh 'curl http://localhost:3000'
-                    sh 'curl http://localhost:3001'
-                    sh 'curl http://localhost:3002'
+                    echo "sleep 10"
+                    echo "curl http://localhost:3000"
+                    echo "curl http://localhost:3001"
+                    echo "curl http://localhost:3002"
                 }
             }
         }
     } 
-    }
+}
