@@ -3,13 +3,13 @@ pipeline {
     
     // Define environment variables without extra quotes.
     environment {
-        RESPONSE_1 = "Hello from Container 1"
-        RESPONSE_2 = "Hello from Container 2"
-        RESPONSE_3 = "Hello from Container 3"
+        RESPONSE_1 = '"Hello from Container 1"'
+        RESPONSE_2 = '"Hello from Container 2"'
+        RESPONSE_3 = '"Hello from Container 3"'
         
-        PORT_1 = "3000"
-        PORT_2 = "3001"
-        PORT_3 = "3002"
+        PORT_1 = '"3000"'
+        PORT_2 = '"3001"'
+        PORT_3 = '"3002"'
     }
 
     stages {
